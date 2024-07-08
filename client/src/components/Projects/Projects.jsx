@@ -11,7 +11,7 @@ const Projects = () => {
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const response = await fetch('https://api.github.com/users/shenkito/repos');
+                const response = await fetch('https://api.github.com/users/shenkito/starred');
                 const data = await response.json();
                 setProjects(data.slice(0, 10));
 
