@@ -1,3 +1,5 @@
+import React from 'react';
+
 const Hero = () => {
     return (
         <section id="hero" className="flex flex-col items-center justify-start text-gray-300 px-4 py-20">

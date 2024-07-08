@@ -1,7 +1,9 @@
+import React from 'react';
+
 const ContactSection = () => {
     return (
         <section id="contact" className="flex items-center justify-center text-gray-300 px-4 py-20">
-            <div className="text-center max-w-xl space-y-8">
+            <div className="max-w-xl text-center space-y-4">
                 <h2 className="text-2xl md:text-3xl font-bold text-white">Contact</h2>
                 <p className="leading-relaxed text-sm md:text-base">
                     Feel free to reach out to me through my social media profiles or the contact form below:

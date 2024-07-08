@@ -1,3 +1,5 @@
+import React from 'react';
+
 const ProjectCard = ({ project }) => {
     return (
         <div className="bg-gray-900 p-4 rounded-xl transition duration-300 w-80">
