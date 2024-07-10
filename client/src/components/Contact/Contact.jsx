@@ -3,8 +3,8 @@ import React from 'react';
 const ContactSection = () => {
     return (
         <section id="contact" className="flex items-center justify-center text-gray-300 px-4 py-20">
-            <div className="max-w-xl text-center space-y-4">
-                <h2 className="text-2xl md:text-3xl font-bold text-white">Contact</h2>
+            <div className="text-center max-w-xl space-y-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-10">Contact</h2>
                 <p className="leading-relaxed text-sm md:text-base">
                     Feel free to reach out to me through my social media profiles or the contact form below:
                 </p>
@@ -58,7 +58,7 @@ const ContactSection = () => {
                         className="text-gray-400 hover:text-green-400 transition duration-300"
                     >
                         <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.327-.027-3.034-1.846-3.034-1.849 0-2.134 1.444-2.134 2.937v5.666H9.357v-11.5h3.414v1.571h.048c.476-.898 1.636-1.846 3.366-1.846 3.6 0 4.268 2.369 4.268 5.451v6.325zM5.337 8.286a2.065 2.065 0 01-2.062-2.061c0-1.137.925-2.061 2.062-2.061a2.065 2.065 0 012.062 2.061c0 1.137-.925 2.061-2.062 2.061zm1.777 12.166H3.561v-11.5h3.553v11.5zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.208 24 24 23.226 24 22.271V1.729C24 .774 23.208 0 22.225 0z" />
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.327-.027-3.034-1.846-3.034-1.849 0-2.134 1.444-2.134 2.937v5.666H9.357v-11.5h3.414v1.571h.048c.476-.898 1.636-1.846 3.366-1.846 3.6 0 4.268 2.369 4.268 5.451v6.325zM5.337 8.286a2.065 2.065 0 01-2.062-2.061c0-1.138.924-2.063 2.062-2.063s2.063.925 2.063 2.063a2.066 2.066 0 01-2.063 2.061zm1.778 12.166H3.56v-11.5h3.555v11.5zM22.225 0H1.771C.792 0 0 .771 0 1.724v20.451C0 23.229.792 24 1.771 24h20.451C23.208 24 24 23.229 24 22.176V1.724C24 .771 23.208 0 22.225 0z" />
                         </svg>
                     </a>
                 </div>
