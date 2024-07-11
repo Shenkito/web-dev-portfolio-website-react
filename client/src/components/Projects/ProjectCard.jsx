@@ -6,7 +6,7 @@ const ProjectCard = ({ project }) => {
             <div className="overflow-hidden rounded-lg mb-4">
                 <img src={`https://opengraph.githubassets.com/1/${project.full_name}`} alt={project.name} className="w-full h-40 object-cover" />
             </div>
-            <h3 className="text-lg font-semibold text-green-400 mb-2">{project.name}</h3>
+            <h3 className="text-lg font-semibold text-green-400 mb-2 truncate">{project.name}</h3>
             <p className="text-xs text-gray-500 mb-4">Updated: {new Date(project.updated_at).toLocaleDateString()}</p>
             <div className="flex space-x-2">
                 <a
