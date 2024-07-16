@@ -8,7 +8,7 @@ const Hero = () => {
                     <p className="text-green-400 text-base md:text-lg">Hi, my name is</p>
                     <h1 className="text-4xl md:text-5xl font-bold">Ivelin Shenkov</h1>
                     <h2 className="text-xl md:text-2xl font-semibold text-gray-400">
-                        A passionate and enthusiastic junior software engineer and web developer.
+                        A passionate and enthusiastic software engineer and web developer.
                     </h2>
                     <div className="flex justify-start mt-8">
                         <a href="/path-to-cv" className="bg-gradient-to-r from-purple-400 to-blue-500 text-white px-4 py-2 rounded-full">
