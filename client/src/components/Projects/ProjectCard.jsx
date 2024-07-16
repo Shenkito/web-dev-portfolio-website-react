@@ -8,7 +8,7 @@ const ProjectCard = ({ project }) => {
             </div>
             <h3 className="text-lg font-semibold text-green-400 mb-2 truncate">{project.name}</h3>
             <p className="text-xs text-gray-500 mb-4">Updated: {new Date(project.updated_at).toLocaleDateString()}</p>
-            <div className="flex space-x-2">
+            <div className="flex justify-center">
                 <a
                     href={project.html_url}
                     target="_blank"
