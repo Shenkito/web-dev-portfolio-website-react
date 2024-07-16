@@ -66,7 +66,7 @@ const Projects = () => {
             >
                 <FaChevronLeft className="text-gray-400 hover:text-green-400 transition duration-300" size={32} />
             </button>
-            <div ref={carouselRef} className="carousel flex overflow-x-auto space-x-4 p-4">
+            <div ref={carouselRef} className="carousel flex overflow-x-auto space-x-4">
                 {projects.map((project) => (
                     <div key={project.id} className="flex-shrink-0 w-80">
                         <ProjectCard project={project} />
