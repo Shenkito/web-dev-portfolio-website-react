@@ -11,9 +11,9 @@ const Technologies = () => {
     };
 
     return (
-        <section id="technologies" className="text-white px-4 py-20">
+        <section id="technologies" className="text-white px-4 py-20 pt-10">
             <div className="max-w-5xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-10">Technologies I'm Familiar With</h2>
+                <h2 className="text-3xl md:text-3xl font-bold text-center text-white mb-10">Technologies I'm Familiar With</h2>
                 <div className="marquee-container bg-gray-900 rounded-lg p-4 xl:w-3/4 mx-auto">
                     <Marquee gradient={false} speed={40} pauseOnHover={true} paused={marqueePaused}>
                         <div className="icon-item mx-4" onMouseEnter={() => handleIconHover(true)} onMouseLeave={() => handleIconHover(false)}>
