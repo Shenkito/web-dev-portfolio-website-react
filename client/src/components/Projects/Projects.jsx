@@ -62,7 +62,7 @@ const Projects = () => {
             <button
                 className={`absolute left-0 z-10 p-2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white rounded-full ${isScrolledLeft ? '' : 'opacity-0 pointer-events-none'}`}
                 onClick={() => scrollCarousel('left')}
-                style={{ top: '50%', transform: 'translateY(-50%)', marginLeft: '-55px' }}
+                style={{ top: '50%', transform: 'translateY(-50%)', marginLeft: '-65px' }}
             >
                 <FaChevronLeft className="text-gray-400 hover:text-green-400 transition duration-300" size={32} />
             </button>
@@ -76,7 +76,7 @@ const Projects = () => {
             <button
                 className={`absolute right-0 z-10 p-2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white rounded-full ${isScrolledRight ? '' : 'opacity-0 pointer-events-none'}`}
                 onClick={() => scrollCarousel('right')}
-                style={{ top: '50%', transform: 'translateY(-50%)', marginRight: '-55px' }}
+                style={{ top: '50%', transform: 'translateY(-50%)', marginRight: '-65px' }}
             >
                 <FaChevronRight className="text-gray-400 hover:text-green-400 transition duration-300" size={32} />
             </button>
