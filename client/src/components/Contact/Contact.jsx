@@ -1,6 +1,41 @@
-import React from 'react';
+import { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
+    const form = useRef();
+
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: '',
+    });
+
+    const [status, setStatus] = useState('');
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+        const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+        const userId = import.meta.env.VITE_EMAILJS_USER_ID;
+
+        emailjs.send(serviceId, templateId, formData, userId)
+            .then((response) => {
+                setStatus('Message sent successfully!');
+                setFormData({ name: '', email: '', message: '' }); // Clear form after successful send
+                console.log("Message is send")
+            })
+            .catch((err) => {
+                setStatus('Failed to send message. Please try again.');
+                console.error('EmailJS error:', err);
+            });
+    };
+
     return (
         <section id="contact" className="flex items-center justify-center text-gray-300 px-4 py-20">
             <div className="text-center max-w-xl space-y-4">
@@ -8,10 +43,13 @@ const ContactSection = () => {
                 <p className="leading-relaxed text-sm md:text-base">
                     Feel free to reach out to me through my social media profiles or the contact form below:
                 </p>
-                <form className="space-y-4">
+                <form ref={form} onSubmit={handleSubmit} className="space-y-4">
                     <div>
                         <input
                             type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
                             className="w-full px-4 py-2 rounded-lg bg-gray-800 text-gray-300 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400"
                             placeholder="Your Name"
                             required
@@ -20,6 +58,9 @@ const ContactSection = () => {
                     <div>
                         <input
                             type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
                             className="w-full px-4 py-2 rounded-lg bg-gray-800 text-gray-300 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400"
                             placeholder="Your Email"
                             required
@@ -27,6 +68,9 @@ const ContactSection = () => {
                     </div>
                     <div>
                         <textarea
+                            name="message"
+                            value={formData.message}
+                            onChange={handleChange}
                             className="w-full px-4 py-2 rounded-lg bg-gray-800 text-gray-300 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400"
                             placeholder="Your Message"
                             rows="4"
@@ -40,6 +84,7 @@ const ContactSection = () => {
                         Send Message
                     </button>
                 </form>
+                {status && <p className="mt-4 text-green-400">{status}</p>}
                 <div className="flex justify-center space-x-4 mt-8">
                     <a
                         href="https://github.com/shenkito"
