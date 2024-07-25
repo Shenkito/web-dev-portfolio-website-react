@@ -4,6 +4,7 @@ import About from '../../components/About/About'
 import ProjectsSection from '../../components/Projects/ProjectsSection';
 import Hero from '../../components/Hero/Hero';
 import ContactSection from '../../components/Contact/Contact';
+import Footer from '../../components/Footer/Footer';
 
 const Home = () => {
     const [activeSection, setActiveSection] = useState('hero');
@@ -72,6 +73,7 @@ const Home = () => {
             <section id="contact" className="flex flex-col items-center justify-center text-gray-300 px-4 py-20">
                 <ContactSection />
             </section>
+            <Footer />
         </div>
     );
 };
