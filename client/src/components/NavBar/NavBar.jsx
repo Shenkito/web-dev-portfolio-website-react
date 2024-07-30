@@ -57,20 +57,20 @@ const NavBar = ({ activeSection, scrollToSection }) => {
 
                 {/* Burger Icon for Mobile */}
                 <div className="md:hidden flex justify-center w-full relative z-40">
-                    <button 
-                        onClick={handleMenuToggle} 
+                    <button
+                        onClick={handleMenuToggle}
                         className="text-white focus:outline-none relative"
                         aria-expanded={isMenuOpen}
                         aria-controls="mobile-menu"
                         ref={burgerRef}
                     >
-                        <div 
+                        <div
                             className={`w-6 h-0.5 bg-white transition-transform duration-300 ease-in-out ${isMenuOpen ? 'transform rotate-45 translate-y-1.5' : ''}`}
                         ></div>
-                        <div 
+                        <div
                             className={`w-6 h-0.5 bg-white transition-opacity duration-300 ease-in-out ${isMenuOpen ? 'opacity-0' : ''}`}
                         ></div>
-                        <div 
+                        <div
                             className={`w-6 h-0.5 bg-white transition-transform duration-300 ease-in-out ${isMenuOpen ? 'transform -rotate-45 -translate-y-1.5' : ''}`}
                         ></div>
                     </button>
@@ -79,16 +79,16 @@ const NavBar = ({ activeSection, scrollToSection }) => {
 
             {/* Overlay */}
             {isMenuOpen && (
-                <div 
+                <div
                     ref={overlayRef}
-                    className="fixed inset-0 bg-black opacity-50 z-20" 
+                    className="fixed inset-0 bg-black opacity-50 z-20"
                     onClick={() => setIsMenuOpen(false)}
                     role="presentation" // Ensures the overlay does not get focus
                 />
             )}
 
             {/* Mobile Menu */}
-            <div 
+            <div
                 ref={menuRef}
                 id="mobile-menu"
                 className={`md:hidden fixed inset-0 bg-black z-30 transition-transform duration-300 ease-in-out ${isMenuOpen ? 'transform translate-y-0 opacity-100' : 'transform -translate-y-full opacity-0 pointer-events-none'}`}
