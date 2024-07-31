@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProjectCard = ({ project }) => {
     return (
-        <div className="bg-gray-900 p-4 rounded-xl transition duration-300 w-80">
+        <div className="bg-gray-900 p-4 rounded-xl transition duration-300 w-full mx-auto">
             <div className="overflow-hidden rounded-lg mb-4">
                 <img src={`https://opengraph.githubassets.com/1/${project.full_name}`} alt={project.name} className="w-full h-40 object-cover" />
             </div>

@@ -50,7 +50,7 @@ const NavBar = ({ activeSection, scrollToSection }) => {
                             onClick={() => handleLinkClick(section)}
                             className={`cursor-pointer text-lg ${activeSection === section ? 'text-green-400' : 'text-gray-400'} hover:text-green-400 transition duration-300`}
                         >
-                            {section.charAt(0).toUpperCase() + section.slice(1)}
+                            {section === 'hero' ? 'Home' : section.charAt(0).toUpperCase() + section.slice(1)}
                         </a>
                     ))}
                 </div>
@@ -100,7 +100,7 @@ const NavBar = ({ activeSection, scrollToSection }) => {
                             onClick={() => handleLinkClick(section)}
                             className={`block text-lg ${activeSection === section ? 'text-green-400' : 'text-gray-400'} hover:text-green-400 transition duration-300 py-2 px-4`}
                         >
-                            {section.charAt(0).toUpperCase() + section.slice(1)}
+                            {section === 'hero' ? 'Home' : section.charAt(0).toUpperCase() + section.slice(1)}
                         </a>
                     ))}
                 </div>
