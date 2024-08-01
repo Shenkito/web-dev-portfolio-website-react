@@ -22,7 +22,7 @@ const Hero = () => {
                 </div>
                 <div className="relative mt-10 md:mt-0 md:flex-1 flex justify-center md:justify-end">
                     <img
-                        src="src/assets/profilePic.jpg"
+                        src="/assets/profilePic.jpg"
                         alt="Ivelin Shenkov"
                         className="w-60 h-60 rounded-full border-4 border-gray-700"
                     />
