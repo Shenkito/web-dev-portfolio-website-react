@@ -29,7 +29,7 @@ const Technologies = () => {
                 <h2 className="text-2xl sm:text-3xl font-bold text-center text-white mb-10">Technologies I'm Familiar With</h2>
                 <div className="marquee-container bg-gray-900 rounded-lg p-4 sm:p-6 xl:w-3/4 mx-auto">
                     <Marquee gradient={false} speed={60} pauseOnHover={true} paused={marqueePaused}>
-                        <div className="flex flex-wrap gap-4 sm:gap-6">
+                        <div className="flex flex-wrap gap-1 sm:gap-6">
                             {technologies.map((tech, index) => (
                                 <a
                                     key={index}
