@@ -2,8 +2,8 @@ import React from 'react';
 
 const Hero = () => {
     return (
-        <section id="hero" className="flex flex-col items-center justify-start text-gray-300 px-4 py-20">
-            <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl space-y-4 md:space-y-0 md:space-x-10">
+        <section id="hero" className="flex flex-col items-center justify-start text-gray-300 px-4 py-16"> {/* Adjusted py-16 */}
+            <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl space-y-10 md:space-y-0 md:space-x-10">
                 <div className="text-left space-y-4 md:flex-1">
                     <p className="text-green-400 text-base md:text-lg">Hi, my name is</p>
                     <h1 className="text-4xl md:text-5xl font-bold">Ivelin Shenkov</h1>

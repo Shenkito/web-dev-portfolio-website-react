@@ -37,7 +37,7 @@ const ContactSection = () => {
     };
 
     return (
-        <section id="contact" className="flex items-center justify-center text-gray-300 px-4 py-20">
+        <section id="contact" className="flex flex-col items-center justify-center text-gray-300 px-4 py-16"> {/* Adjusted py-16 */}
             <div className="text-center max-w-xl space-y-4">
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-10">Contact</h2>
                 <p className="leading-relaxed text-sm md:text-base">
