@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-const NavBar = ({ activeSection, scrollToSection }) => {
+const NavBar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState('hero');
     const menuRef = useRef(null);
     const burgerRef = useRef(null);
     const overlayRef = useRef(null);
@@ -12,6 +13,48 @@ const NavBar = ({ activeSection, scrollToSection }) => {
         scrollToSection(section);
         setIsMenuOpen(false); // Close menu after navigating
     };
+
+    const scrollToSection = (section) => {
+        const element = document.getElementById(section);
+        if (element) {
+            const offset = -60; // Adjust this offset if necessary
+            const elementRect = element.getBoundingClientRect().top + window.pageYOffset;
+            window.scrollTo({
+                top: elementRect + offset,
+                behavior: 'smooth',
+            });
+        }
+    };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const sections = ['hero', 'about', 'projects', 'contact'];
+            let currentSection = '';
+
+            sections.forEach(id => {
+                const section = document.getElementById(id);
+                if (section) {
+                    const rect = section.getBoundingClientRect();
+                    const viewportHeight = window.innerHeight;
+                    if (rect.top <= viewportHeight / 2 && rect.bottom >= viewportHeight / 2) {
+                        currentSection = id;
+                    }
+                }
+            });
+
+            if (currentSection && currentSection !== activeSection) {
+                setActiveSection(currentSection);
+                console.log(currentSection)
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Call on mount to set initial state
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [activeSection]);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -68,7 +111,7 @@ const NavBar = ({ activeSection, scrollToSection }) => {
                             className={`w-6 h-0.5 bg-white transition-transform duration-300 ease-in-out ${isMenuOpen ? 'transform rotate-45 translate-y-1.5' : ''}`}
                         ></div>
                         <div
-                            className={`w-6 h-0.5 bg-white transition-opacity duration-300 ease-in-out ${isMenuOpen ? 'opacity-0' : ''}`}
+                            className={`w-6 h-0.5 bg-white transition-opacity duration-300 ease-in-out ${isMenuOpen ? 'opacity-0' : ''} ${!isMenuOpen && 'mt-1.5'}`}
                         ></div>
                         <div
                             className={`w-6 h-0.5 bg-white transition-transform duration-300 ease-in-out ${isMenuOpen ? 'transform -rotate-45 -translate-y-1.5' : ''}`}
