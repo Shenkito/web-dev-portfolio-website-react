@@ -4,12 +4,28 @@ import ProjectCard from './ProjectCard';
 const Projects = () => {
     const [projects, setProjects] = useState([]);
 
+    // List of projects with their corresponding live demo URLs
+    const liveDemoProjects = {
+        'Shenkito/chat-app-react': 'https://chat-app-react-are6.onrender.com/',
+        // Add more projects as needed
+    };
+
     useEffect(() => {
         const fetchProjects = async () => {
             try {
                 const response = await fetch('https://api.github.com/users/shenkito/starred');
                 const data = await response.json();
-                setProjects(data.slice(0, 10));
+
+                // Log full_name to check if it matches what you expect
+                console.log('Fetched project full_names:', data.map(project => project.full_name));
+
+                // Enhance projects with live demo URLs
+                const enhancedProjects = data.slice(0, 10).map((project) => ({
+                    ...project,
+                    live_demo_url: liveDemoProjects[project.full_name] || null,
+                }));
+
+                setProjects(enhancedProjects);
             } catch (error) {
                 console.error('Error fetching projects:', error);
             }
