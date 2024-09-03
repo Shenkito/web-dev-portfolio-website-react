@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { IoLogoGithub } from "react-icons/io";
-import { IoLogoLinkedin } from "react-icons/io5";
+import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
@@ -28,7 +27,6 @@ const ContactSection = () => {
             .then((response) => {
                 setStatus('Message sent successfully!');
                 setFormData({ name: '', email: '', message: '' }); // Clear form after successful send
-                console.log("Sent")
             })
             .catch((err) => {
                 setStatus('Failed to send message. Please try again.');
@@ -37,10 +35,12 @@ const ContactSection = () => {
     };
 
     return (
-        <section id="contact" className="flex flex-col items-center justify-center text-gray-300 px-4 py-16"> {/* Adjusted py-16 */}
-            <div className="text-center max-w-xl space-y-4">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-10">Contact</h2>
-                <p className="leading-relaxed text-sm md:text-base">
+        <section id="contact" className="flex flex-col items-center justify-center text-gray-300 px-4 py-16">
+            <div className="text-center max-w-xl space-y-6">
+                <div className="w-full text-center mb-12">
+                    <h2 className="text-4xl md:text-5xl font-bold text-white">Contact</h2>
+                </div>
+                <p className="leading-relaxed text-sm md:text-base mb-6">
                     Feel free to reach out to me through my social media profiles or the contact form below:
                 </p>
                 <form className="space-y-4" onSubmit={handleSubmit}>
@@ -71,7 +71,7 @@ const ContactSection = () => {
                             name="message"
                             value={formData.message}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 rounded-lg bg-gray-800 text-gray-300 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400"
+                            className="w-full px-4 py-2 rounded-lg bg-gray-800 text-gray-300 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400 resize-none min-h-[120px]"
                             placeholder="Your Message"
                             rows="4"
                             required
@@ -79,7 +79,7 @@ const ContactSection = () => {
                     </div>
                     <button
                         type="submit"
-                        className="w-full px-4 py-2 rounded-lg bg-gradient-to-r from-purple-400 to-blue-500 text-white hover:from-green-400 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400"
+                        className="bg-gradient-to-r from-purple-400 to-blue-500 text-white px-4 py-2 rounded-full transform transition-transform duration-300 hover:scale-105 hover:from-green-400 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400"
                     >
                         Send Message
                     </button>

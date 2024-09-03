@@ -141,7 +141,7 @@ const NavBar = () => {
                         <a
                             key={section}
                             onClick={() => handleLinkClick(section)}
-                            className={`block text-lg ${activeSection === section ? 'text-green-400' : 'text-gray-400'} hover:text-green-400 transition duration-300 py-2 px-4`}
+                            className={`block text-lg cursor-pointer ${activeSection === section ? 'text-green-400' : 'text-gray-400'} hover:text-green-400 transition duration-300 py-2 px-4`}
                         >
                             {section === 'hero' ? 'Home' : section.charAt(0).toUpperCase() + section.slice(1)}
                         </a>

@@ -4,7 +4,6 @@ import ProjectCard from './ProjectCard';
 const Projects = () => {
     const [projects, setProjects] = useState([]);
 
-    // List of projects with their corresponding live demo URLs
     const liveDemoProjects = {
         'Shenkito/chat-app-react': 'https://chat-app-react-are6.onrender.com/',
         // Add more projects as needed
@@ -16,10 +15,8 @@ const Projects = () => {
                 const response = await fetch('https://api.github.com/users/shenkito/starred');
                 const data = await response.json();
 
-                // Log full_name to check if it matches what you expect
                 console.log('Fetched project full_names:', data.map(project => project.full_name));
 
-                // Enhance projects with live demo URLs
                 const enhancedProjects = data.slice(0, 10).map((project) => ({
                     ...project,
                     live_demo_url: liveDemoProjects[project.full_name] || null,
@@ -35,8 +32,8 @@ const Projects = () => {
     }, []);
 
     return (
-        <div className="w-full max-w-6xl mx-auto px-4">
-            <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="w-full">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {projects.map((project) => (
                     <ProjectCard key={project.id} project={project} />
                 ))}

@@ -3,7 +3,7 @@ import Home from './pages/Home/Home';
 
 function App() {
     return (
-        <div className="min-h-screen flex flex-col fade-in bg-gradient-to-b from-black via-gray-800 to-blue-900">
+        <div className="min-h-screen flex flex-col bg-gradient-to-b from-black via-gray-800 to-blue-900 fade-in">
             <Home />
         </div>
     );
