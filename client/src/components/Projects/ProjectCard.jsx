@@ -28,7 +28,7 @@ const ProjectCard = ({ project }) => {
                         rel="noopener noreferrer"
                         className="inline-flex items-center justify-center border border-green-500 text-green-400 px-2 py-1 rounded-full text-xs hover:bg-green-700 transition-colors"
                     >
-                        <span className="text-center">Check Live Demo</span>
+                        <span className="text-center">Live preview</span>
                     </a>
                 )}
             </div>
