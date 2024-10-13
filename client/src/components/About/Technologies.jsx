@@ -13,11 +13,11 @@ const Technologies = () => {
         { name: 'Vite', icon: <SiVite className="text-4xl" style={{ color: '#646CFF' }} />, url: 'https://vitejs.dev/' },
         { name: 'MongoDB', icon: <SiMongodb className="text-4xl" style={{ color: '#47A248' }} />, url: 'https://www.mongodb.com/' },
         { name: 'OpenAI', icon: <SiOpenai className="text-4xl" style={{ color: '#412991' }} />, url: 'https://www.openai.com/' },
-        { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-4xl" style={{ color: '#38B2AC' }} />, url: 'https://tailwindcss.com/' }
+        { name: 'TailwindCSS', icon: <SiTailwindcss className="text-4xl" style={{ color: '#38B2AC' }} />, url: 'https://tailwindcss.com/' }
     ];
 
     return (
-        <div className="p-4">
+        <div className="p-4 flex flex-col items-center">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
                 {technologies.map((tech, index) => (
                     <a
@@ -29,7 +29,7 @@ const Technologies = () => {
                         title={tech.name}
                     >
                         {tech.icon}
-                        <span className="mt-2 text-sm text-gray-300">{tech.name}</span>
+                        <span className="mt-2 text-sm text-gray-300 text-center">{tech.name}</span> {/* Added text-center */}
                     </a>
                 ))}
             </div>

@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
+const sections = ['hero', 'about', 'projects', 'contact'];
+
 const NavBar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('hero');
@@ -28,7 +30,6 @@ const NavBar = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            const sections = ['hero', 'about', 'projects', 'contact'];
             let currentSection = '';
 
             sections.forEach(id => {
@@ -44,7 +45,6 @@ const NavBar = () => {
 
             if (currentSection && currentSection !== activeSection) {
                 setActiveSection(currentSection);
-                console.log(currentSection)
             }
         };
 
@@ -83,15 +83,15 @@ const NavBar = () => {
     }, [isMenuOpen]);
 
     return (
-        <nav className="fixed top-0 left-0 w-full bg-black py-4 z-30 shadow-lg">
+        <nav className="fixed top-0 left-0 w-full bg-black py-4 z-30 shadow-lg" role="navigation">
             <div className="container mx-auto flex items-center justify-between">
                 {/* Desktop Menu */}
                 <div className="hidden md:flex md:justify-center w-full space-x-10">
-                    {['hero', 'about', 'projects', 'contact'].map(section => (
+                    {sections.map(section => (
                         <a
                             key={section}
                             onClick={() => handleLinkClick(section)}
-                            className={`cursor-pointer text-lg ${activeSection === section ? 'text-green-400' : 'text-gray-400'} hover:text-green-400 transition duration-300`}
+                            className={`cursor-pointer text-lg ${activeSection === section ? 'text-green-400 underline' : 'text-gray-400'} hover:text-green-400 transition duration-300`}
                         >
                             {section === 'hero' ? 'Home' : section.charAt(0).toUpperCase() + section.slice(1)}
                         </a>
@@ -107,15 +107,9 @@ const NavBar = () => {
                         aria-controls="mobile-menu"
                         ref={burgerRef}
                     >
-                        <div
-                            className={`w-6 h-0.5 bg-white transition-transform duration-300 ease-in-out ${isMenuOpen ? 'transform rotate-45 translate-y-1.5' : ''}`}
-                        ></div>
-                        <div
-                            className={`w-6 h-0.5 bg-white transition-opacity duration-300 ease-in-out ${isMenuOpen ? 'opacity-0' : ''} ${!isMenuOpen && 'mt-1.5'}`}
-                        ></div>
-                        <div
-                            className={`w-6 h-0.5 bg-white transition-transform duration-300 ease-in-out ${isMenuOpen ? 'transform -rotate-45 -translate-y-1.5' : ''}`}
-                        ></div>
+                        <div className={`w-6 h-0.5 bg-white transition-transform duration-300 ease-in-out ${isMenuOpen ? 'transform rotate-45 translate-y-1.5' : ''}`}></div>
+                        <div className={`w-6 h-0.5 bg-white transition-opacity duration-300 ease-in-out ${isMenuOpen ? 'opacity-0' : ''} ${!isMenuOpen && 'mt-1.5'}`}></div>
+                        <div className={`w-6 h-0.5 bg-white transition-transform duration-300 ease-in-out ${isMenuOpen ? 'transform -rotate-45 -translate-y-1.5' : ''}`}></div>
                     </button>
                 </div>
             </div>
@@ -137,11 +131,11 @@ const NavBar = () => {
                 className={`md:hidden fixed inset-0 bg-black z-30 transition-transform duration-300 ease-in-out ${isMenuOpen ? 'transform translate-y-0 opacity-100' : 'transform -translate-y-full opacity-0 pointer-events-none'}`}
             >
                 <div className="flex flex-col items-center justify-center h-full">
-                    {['hero', 'about', 'projects', 'contact'].map(section => (
+                    {sections.map(section => (
                         <a
                             key={section}
                             onClick={() => handleLinkClick(section)}
-                            className={`block text-lg cursor-pointer ${activeSection === section ? 'text-green-400' : 'text-gray-400'} hover:text-green-400 transition duration-300 py-2 px-4`}
+                            className={`block text-lg cursor-pointer ${activeSection === section ? 'text-green-400 underline' : 'text-gray-400'} hover:text-green-400 transition duration-300 py-2 px-4`}
                         >
                             {section === 'hero' ? 'Home' : section.charAt(0).toUpperCase() + section.slice(1)}
                         </a>

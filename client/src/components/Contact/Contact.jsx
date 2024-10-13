@@ -37,12 +37,12 @@ const ContactSection = () => {
     return (
         <section id="contact" className="flex flex-col items-center justify-center text-gray-300 px-4 py-16">
             <div className="text-center max-w-xl space-y-6">
+                {/* Adjusted Header */}
                 <div className="w-full text-center mb-12">
-                    <h2 className="text-4xl md:text-5xl font-bold text-white">Contact</h2>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white">Contact</h2> {/* Header style matching Projects */}
+                    <p className="mt-2 text-lg text-gray-400">Feel free to reach out to me through my social media profiles or the contact form below:</p> {/* Paragraph style matching Projects */}
                 </div>
-                <p className="leading-relaxed text-sm md:text-base mb-6">
-                    Feel free to reach out to me through my social media profiles or the contact form below:
-                </p>
+
                 <form className="space-y-4" onSubmit={handleSubmit}>
                     <div>
                         <input

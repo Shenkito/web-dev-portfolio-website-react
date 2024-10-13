@@ -7,7 +7,7 @@ const ProjectCard = ({ project }) => {
                 <img
                     src={`https://opengraph.githubassets.com/1/${project.full_name}`}
                     alt={project.name}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 transform hover:scale-105"
                 />
             </div>
             <h3 className="text-lg font-semibold text-green-400 mb-2 truncate">{project.name}</h3>
@@ -28,7 +28,7 @@ const ProjectCard = ({ project }) => {
                         rel="noopener noreferrer"
                         className="inline-flex items-center justify-center border border-green-500 text-green-400 px-2 py-1 rounded-full text-xs hover:bg-green-700 transition-colors"
                     >
-                        <span className="text-center">Live preview</span>
+                        <span className="text-center">Live Preview</span>
                     </a>
                 )}
             </div>

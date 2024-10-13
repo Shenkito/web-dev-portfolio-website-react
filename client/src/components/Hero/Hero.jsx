@@ -2,13 +2,13 @@ import React from 'react';
 
 const Hero = () => {
     return (
-        <section id="hero" className="flex flex-col items-center justify-start text-gray-300 px-4 py-20 md:py-24"> {/* Consistent padding */}
-            <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl space-y-8 md:space-y-0"> {/* Adjusted spacing */}
-                <div className="text-left space-y-4 md:flex-1">
-                    <p className="text-green-400 text-base md:text-lg">Hi, my name is</p> {/* Removed unnecessary margin and padding adjustments */}
+        <section id="hero" className="flex flex-col items-center justify-start text-gray-300 px-4 py-20 md:py-24">
+            <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-5xl space-y-8 md:space-y-0">
+                <div className="text-left space-y-4 md:flex-1 flex flex-col items-start justify-center">
+                    <p className="text-green-400 text-base md:text-lg">Hi, my name is</p>
                     <h1 className="text-4xl md:text-5xl font-bold">Ivelin Shenkov</h1>
                     <h2 className="text-xl md:text-2xl font-semibold text-gray-400">
-                        A passionate and enthusiastic software engineer and web developer.
+                        A passionate and enthusiastic Software Engineer / Web Developer.
                     </h2>
                     <div className="flex justify-start mt-8">
                         <a
@@ -20,7 +20,7 @@ const Hero = () => {
                         </a>
                     </div>
                 </div>
-                <div className="relative mt-8 md:mt-0 md:flex-1 flex justify-center md:justify-end"> {/* Adjusted mt-8 for better balance */}
+                <div className="relative mt-8 md:mt-0 md:flex-1 flex justify-center md:justify-end">
                     <img
                         src="/assets/profilePic.jpg"
                         alt="Ivelin Shenkov"
