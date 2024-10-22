@@ -8,11 +8,11 @@ const Hero = () => {
                     <p className="text-green-400 text-base md:text-lg">Hi, my name is</p>
                     <h1 className="text-4xl md:text-5xl font-bold">Ivelin Shenkov</h1>
                     <h2 className="text-xl md:text-2xl font-semibold text-gray-400">
-                        A passionate and enthusiastic Software / Web Developer.
+                        A passionate and enthusiastic Junior Software / Web Developer.
                     </h2>
                     <div className="flex justify-start mt-8">
                         <a
-                            href="https://drive.google.com/uc?export=download&id=163PVj6jAPIKdns9l46j1iqPSH6WDZRnT"
+                            href="https://drive.google.com/uc?export=download&id=1NOeLQVbpMz4Gc9_5QVSp0iS-0m39KOCS"
                             download="Ivelin_Shenkov_CV.pdf"
                             className="bg-gradient-to-r from-purple-400 to-blue-500 text-white px-4 py-2 rounded-full transform transition-transform duration-300 hover:scale-105 hover:from-green-400 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400"
                         >
