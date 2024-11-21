@@ -2,6 +2,10 @@
 
 This is a personal portfolio website built using modern web technologies. It showcases my projects, provides information about me, and includes a contact form for reaching out. The site is styled with TailwindCSS and includes interactive elements powered by React.
 
+## Access the website
+
+Open your browser and navigate to (https://ishenk-portfolio.web.app/) to see the website in action.
+
 ## Screenshots
 
 ### Home Page
@@ -29,7 +33,3 @@ This is a personal portfolio website built using modern web technologies. It sho
 
 - **Frontend**: React, TailwindCSS
 - **Form Handling**: EmailJS
-
-## Access the website
-
-Open your browser and navigate to (https://ishenk-portfolio.web.app/) to see the website in action.
