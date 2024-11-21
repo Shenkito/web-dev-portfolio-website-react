@@ -33,3 +33,4 @@ Open your browser and navigate to (https://ishenk-portfolio.web.app/) to see the
 
 - **Frontend**: React, TailwindCSS
 - **Form Handling**: EmailJS
+- **Deployed**: https://firebase.google.com/
