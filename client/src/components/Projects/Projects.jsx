@@ -6,6 +6,7 @@ const Projects = () => {
 
     const liveDemoProjects = {
         'Shenkito/chat-app-react': 'https://chat-app-react-are6.onrender.com/',
+        'Shenkito/personal-finance-tracker': 'https://personal-finance-tracker-b479.onrender.com/',
         // Add more projects as needed
     };
 
