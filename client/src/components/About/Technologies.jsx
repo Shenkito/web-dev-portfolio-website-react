@@ -1,6 +1,19 @@
 import React from 'react';
 import { FaReact, FaNodeJs, FaHtml5, FaCss3 } from 'react-icons/fa';
-import { SiJavascript, SiExpress, SiVite, SiMongodb, SiOpenai, SiTailwindcss } from 'react-icons/si';
+import {
+    SiJavascript,
+    SiExpress,
+    SiVite,
+    SiMongodb,
+    SiOpenai,
+    SiTailwindcss,
+    SiStoryblok,
+    SiAzuredevops,
+    SiFigma,
+    SiJirasoftware,
+    SiCrowdin,
+    SiPostman
+} from 'react-icons/si';
 
 const Technologies = () => {
     const technologies = [
@@ -13,7 +26,13 @@ const Technologies = () => {
         { name: 'Vite', icon: <SiVite className="text-4xl" style={{ color: '#646CFF' }} />, url: 'https://vitejs.dev/' },
         { name: 'MongoDB', icon: <SiMongodb className="text-4xl" style={{ color: '#47A248' }} />, url: 'https://www.mongodb.com/' },
         { name: 'OpenAI', icon: <SiOpenai className="text-4xl" style={{ color: '#412991' }} />, url: 'https://www.openai.com/' },
-        { name: 'TailwindCSS', icon: <SiTailwindcss className="text-4xl" style={{ color: '#38B2AC' }} />, url: 'https://tailwindcss.com/' }
+        { name: 'TailwindCSS', icon: <SiTailwindcss className="text-4xl" style={{ color: '#38B2AC' }} />, url: 'https://tailwindcss.com/' },
+        { name: 'Storyblok', icon: <SiStoryblok className="text-4xl" style={{ color: '#0EA5E9' }} />, url: 'https://www.storyblok.com/' },
+        { name: 'Azure DevOps', icon: <SiAzuredevops className="text-4xl" style={{ color: '#0078D7' }} />, url: 'https://azure.microsoft.com/en-us/services/devops/' },
+        { name: 'Figma', icon: <SiFigma className="text-4xl" style={{ color: '#F24E1E' }} />, url: 'https://www.figma.com/' },
+        { name: 'Jira', icon: <SiJirasoftware className="text-4xl" style={{ color: '#0052CC' }} />, url: 'https://www.atlassian.com/software/jira' },
+        { name: 'Crowdin', icon: <SiCrowdin className="text-4xl" style={{ color: '#41718C' }} />, url: 'https://crowdin.com/' },
+        { name: 'Postman', icon: <SiPostman className="text-4xl" style={{ color: '#FF6C37' }} />, url: 'https://www.postman.com/' }
     ];
 
     return (
@@ -29,7 +48,7 @@ const Technologies = () => {
                         title={tech.name}
                     >
                         {tech.icon}
-                        <span className="mt-2 text-sm text-gray-300 text-center">{tech.name}</span> {/* Added text-center */}
+                        <span className="mt-2 text-sm text-gray-300 text-center">{tech.name}</span>
                     </a>
                 ))}
             </div>
