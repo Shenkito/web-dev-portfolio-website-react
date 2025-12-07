@@ -12,7 +12,7 @@ const Hero = () => {
                     </h2>
                     <div className="flex justify-start mt-8">
                         <a
-                            href="https://drive.google.com/uc?export=download&id=1YqVFVaLTXWgDbhNWR-GEPBvAu9RwcVeb"
+                            href="https://drive.google.com/uc?export=download&id=1Qa9IjislOiZMsIzD6I1oYBURMJZ5-c7D"
                             download="Ivelin_Shenkov_CV.pdf"
                             className="bg-gradient-to-r from-purple-400 to-blue-500 text-white px-4 py-2 rounded-full transform transition-transform duration-300 hover:scale-105 hover:from-green-400 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400"
                         >
