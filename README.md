@@ -9,22 +9,30 @@ The personal portfolio of Ivelin Shenkov, Software Developer focused on the fron
 ## Screenshots
 
 ### Home
-![Home](Portfolio-Screenshots/Home.png)
+![Home](screenshots/home.png)
 
 ### About
-![About](Portfolio-Screenshots/About.png)
+![About: bio, experience, education and tech stack](screenshots/about.png)
 
 ### Certificate viewer
-![Certificate viewer](Portfolio-Screenshots/Certificates.png)
+![Certificate viewer](screenshots/certificates.png)
 
 ### Projects
-![Projects](Portfolio-Screenshots/Projects.png)
+![Projects](screenshots/projects.png)
 
 ### Contact
-![Contact](Portfolio-Screenshots/Contact.png)
+![Contact form and footer](screenshots/contact.png)
 
 ### Mobile
-<img src="Portfolio-Screenshots/Mobile.png" alt="Mobile" width="300" />
+![Mobile: home, menu, about, projects and contact](screenshots/mobile.png)
+
+### Full page
+<details>
+<summary>Show the whole page</summary>
+
+![Full page](screenshots/full-page.jpg)
+
+</details>
 
 ## Features
 
