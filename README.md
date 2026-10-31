@@ -1,36 +1,70 @@
 # Portfolio Website
 
-This is a personal portfolio website built using modern web technologies. It showcases my projects, provides information about me, and includes a contact form for reaching out. The site is styled with TailwindCSS and includes interactive elements powered by React.
+The personal portfolio of Ivelin Shenkov, Software Developer focused on the front-end. It covers my experience, education with verifiable SoftUni certificates, tech stack and projects, and includes a contact form that sends me an email.
 
-## Access the website
+## Live site
 
-Open your browser and navigate to (https://ishenk-portfolio.web.app/) to see the website in action.
+[ishenk-portfolio.web.app](https://ishenk-portfolio.web.app/)
 
 ## Screenshots
 
-### Home Page
-![Home Page](https://github.com/Shenkito/web-dev-portfolio-website-react/blob/main/Portfolio-Screenshots/Home.png?raw=true)
+### Home
+![Home](Portfolio-Screenshots/Home.png)
 
-### About Page
-![About Page](https://github.com/Shenkito/web-dev-portfolio-website-react/blob/main/Portfolio-Screenshots/About.png?raw=true)
+### About
+![About](Portfolio-Screenshots/About.png)
 
-### Projects Page
-![Projects Page](https://github.com/Shenkito/web-dev-portfolio-website-react/blob/main/Portfolio-Screenshots/Projects.png?raw=true)
+### Certificate viewer
+![Certificate viewer](Portfolio-Screenshots/Certificates.png)
 
-### Contact Page
-![Contact Page](https://github.com/Shenkito/web-dev-portfolio-website-react/blob/main/Portfolio-Screenshots/Contact.png?raw=true)
+### Projects
+![Projects](Portfolio-Screenshots/Projects.png)
+
+### Contact
+![Contact](Portfolio-Screenshots/Contact.png)
+
+### Mobile
+<img src="Portfolio-Screenshots/Mobile.png" alt="Mobile" width="300" />
 
 ## Features
 
-- **Responsive Design**: Mobile-first and responsive layout with TailwindCSS.
-- **Smooth Scrolling**: Smooth navigation between sections using custom scroll handling.
-- **Contact Form**: Contact form with validation and email handling using EmailJS.
-- **Dynamic Navbar**: Interactive navbar with dynamic highlighting of the current section.
-- **Hover Effects**: Stylish hover effects on buttons and links for better user experience.
-- **CV Download**: Downloadable CV link.
+- **Responsive layout**: tested on screens from 320px phones to 2560px monitors, including tablets and phones in landscape.
+- **Navigation**: a navbar that highlights the section you're in, with a dropdown menu on phones and a "Back to top" link in the footer.
+- **About**: experience, education and a scrolling tech stack that pauses on hover (shown as a still list for visitors who turn off animations).
+- **Certificate viewer**: open any SoftUni certificate, switch between them with arrows, keyboard or swipe, and verify each one on softuni.bg.
+- **Projects**: cards with screenshots, tech tags and links to the live demo and the code.
+- **Contact form**: sends email through EmailJS, with "Sending...", success and error states.
+- **Link previews and favicon**: Open Graph tags so shared links show a preview image, plus a custom tab icon.
+- **Accessibility**: labelled form fields, keyboard support and screen-reader-friendly labels.
 
-## Tech Stack
+## Tech stack
 
-- **Frontend**: React, TailwindCSS
-- **Form Handling**: EmailJS
-- **Deployed**: https://firebase.google.com/
+- **Frontend**: React 18, Vite, TailwindCSS
+- **Libraries**: react-icons, react-fast-marquee
+- **Email**: EmailJS
+- **Hosting**: Firebase Hosting
+
+## Run it locally
+
+```bash
+cd client
+npm install
+npm run dev
+```
+
+The contact form needs an [EmailJS](https://www.emailjs.com/) account. Create `client/.env` with your keys:
+
+```
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_USER_ID=your_public_key
+```
+
+## Deploy
+
+```bash
+cd client
+firebase deploy
+```
+
+`firebase.json` runs `npm run build` before every deploy, so the build is always up to date.

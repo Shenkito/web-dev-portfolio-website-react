@@ -1,17 +1,22 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 const sections = ['hero', 'about', 'projects', 'contact'];
+const links = [
+    { id: 'about', label: 'About' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'contact', label: 'Contact' },
+];
 
 const NavBar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('hero');
-    const menuRef = useRef(null);
-    const burgerRef = useRef(null);
-    const overlayRef = useRef(null);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const navRef = useRef(null);
 
     const handleMenuToggle = () => setIsMenuOpen(prevState => !prevState);
 
-    const handleLinkClick = (section) => {
+    const handleLinkClick = (event, section) => {
+        event.preventDefault();
         scrollToSection(section);
         setIsMenuOpen(false); // Close menu after navigating
     };
@@ -19,7 +24,7 @@ const NavBar = () => {
     const scrollToSection = (section) => {
         const element = document.getElementById(section);
         if (element) {
-            const offset = -60; // Adjust this offset if necessary
+            const offset = -64; // Height of the nav bar (h-16)
             const elementRect = element.getBoundingClientRect().top + window.pageYOffset;
             window.scrollTo({
                 top: elementRect + offset,
@@ -30,116 +35,106 @@ const NavBar = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            let currentSection = '';
+            setIsScrolled(window.scrollY > 10);
 
-            sections.forEach(id => {
+            const viewportMiddle = window.innerHeight / 2;
+            const currentSection = sections.find(id => {
                 const section = document.getElementById(id);
-                if (section) {
-                    const rect = section.getBoundingClientRect();
-                    const viewportHeight = window.innerHeight;
-                    if (rect.top <= viewportHeight / 2 && rect.bottom >= viewportHeight / 2) {
-                        currentSection = id;
-                    }
-                }
+                if (!section) return false;
+                const rect = section.getBoundingClientRect();
+                return rect.top <= viewportMiddle && rect.bottom >= viewportMiddle;
             });
 
-            if (currentSection && currentSection !== activeSection) {
+            if (currentSection) {
                 setActiveSection(currentSection);
             }
         };
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         handleScroll(); // Call on mount to set initial state
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, [activeSection]);
-
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (
-                menuRef.current && !menuRef.current.contains(event.target) &&
-                burgerRef.current && !burgerRef.current.contains(event.target) &&
-                overlayRef.current && !overlayRef.current.contains(event.target)
-            ) {
-                setIsMenuOpen(false);
-            }
-        };
-
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => document.removeEventListener('mousedown', handleClickOutside);
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     useEffect(() => {
-        if (isMenuOpen) {
-            document.body.style.overflow = 'hidden'; // Disable scrolling
-        } else {
-            document.body.style.overflow = ''; // Enable scrolling
-        }
+        if (!isMenuOpen) return;
+
+        const handleClickOutside = (event) => {
+            if (navRef.current && !navRef.current.contains(event.target)) {
+                setIsMenuOpen(false);
+            }
+        };
+        const handleEscape = (event) => {
+            if (event.key === 'Escape') setIsMenuOpen(false);
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        document.addEventListener('keydown', handleEscape);
         return () => {
-            document.body.style.overflow = ''; // Clean up on unmount
+            document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener('keydown', handleEscape);
         };
     }, [isMenuOpen]);
 
+    const renderLink = ({ id, label }, className = '') => (
+        <a
+            key={id}
+            href={`#${id}`}
+            onClick={(event) => handleLinkClick(event, id)}
+            aria-current={activeSection === id ? 'true' : undefined}
+            className={`transition-colors duration-300 ${activeSection === id ? 'text-white' : 'text-gray-400 hover:text-white'} ${className}`}
+        >
+            <span className="relative">
+                {label}
+                {/* Gradient underline for the active section */}
+                <span className={`absolute left-0 -bottom-1 h-0.5 w-full rounded-full bg-gradient-to-r from-purple-400 to-blue-500 origin-left transition-transform duration-300 ${activeSection === id ? 'scale-x-100' : 'scale-x-0'}`}></span>
+            </span>
+        </a>
+    );
+
     return (
-        <nav className="fixed top-0 left-0 w-full bg-black py-4 z-30 shadow-lg" role="navigation">
-            <div className="container mx-auto flex items-center justify-between">
+        <nav
+            ref={navRef}
+            className={`fixed top-0 left-0 w-full z-30 px-4 border-b transition-all duration-300 ${isMenuOpen ? 'bg-black/90 backdrop-blur-md border-white/10 shadow-lg' : isScrolled ? 'bg-black/70 backdrop-blur-md border-white/10 shadow-lg' : 'bg-transparent border-transparent'}`}
+            aria-label="Main"
+        >
+            <div className="max-w-5xl mx-auto h-16 flex items-center justify-between">
+                <a
+                    href="#hero"
+                    onClick={(event) => handleLinkClick(event, 'hero')}
+                    aria-label="ISH - back to top"
+                    className="text-2xl font-bold tracking-wider transition-opacity duration-300 hover:opacity-80"
+                >
+                    <span className="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">ISH</span>
+                    <span className="text-green-400 cursor-blink">_</span>
+                </a>
+
                 {/* Desktop Menu */}
-                <div className="hidden md:flex md:justify-center w-full space-x-10">
-                    {sections.map(section => (
-                        <a
-                            key={section}
-                            onClick={() => handleLinkClick(section)}
-                            className={`cursor-pointer text-lg ${activeSection === section ? 'text-green-400 underline' : 'text-gray-400'} hover:text-green-400 transition duration-300`}
-                        >
-                            {section === 'hero' ? 'Home' : section.charAt(0).toUpperCase() + section.slice(1)}
-                        </a>
-                    ))}
+                <div className="hidden md:flex items-center gap-8">
+                    {links.map(link => renderLink(link))}
                 </div>
 
                 {/* Burger Icon for Mobile */}
-                <div className="md:hidden flex justify-center w-full relative z-40">
-                    <button
-                        onClick={handleMenuToggle}
-                        className="text-white focus:outline-none relative"
-                        aria-expanded={isMenuOpen}
-                        aria-controls="mobile-menu"
-                        ref={burgerRef}
-                    >
-                        <div className={`w-6 h-0.5 bg-white transition-transform duration-300 ease-in-out ${isMenuOpen ? 'transform rotate-45 translate-y-1.5' : ''}`}></div>
-                        <div className={`w-6 h-0.5 bg-white transition-opacity duration-300 ease-in-out ${isMenuOpen ? 'opacity-0' : ''} ${!isMenuOpen && 'mt-1.5'}`}></div>
-                        <div className={`w-6 h-0.5 bg-white transition-transform duration-300 ease-in-out ${isMenuOpen ? 'transform -rotate-45 -translate-y-1.5' : ''}`}></div>
-                    </button>
-                </div>
+                <button
+                    type="button"
+                    onClick={handleMenuToggle}
+                    className="md:hidden -mr-2 p-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-green-400"
+                    aria-expanded={isMenuOpen}
+                    aria-controls="mobile-menu"
+                    aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+                >
+                    <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-y-1 rotate-45' : ''}`}></span>
+                    <span className={`block w-6 h-0.5 mt-1.5 bg-white transition-transform duration-300 ease-in-out ${isMenuOpen ? '-translate-y-1 -rotate-45' : ''}`}></span>
+                </button>
             </div>
-
-            {/* Overlay */}
-            {isMenuOpen && (
-                <div
-                    ref={overlayRef}
-                    className="fixed inset-0 bg-black opacity-50 z-20"
-                    onClick={() => setIsMenuOpen(false)}
-                    role="presentation" // Ensures the overlay does not get focus
-                />
-            )}
 
             {/* Mobile Menu */}
             <div
-                ref={menuRef}
                 id="mobile-menu"
-                className={`md:hidden fixed inset-0 bg-black z-30 transition-transform duration-300 ease-in-out ${isMenuOpen ? 'transform translate-y-0 opacity-100' : 'transform -translate-y-full opacity-0 pointer-events-none'}`}
+                className={`md:hidden max-w-5xl mx-auto overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-64 opacity-100 visible' : 'max-h-0 opacity-0 invisible'}`}
             >
-                <div className="flex flex-col items-center justify-center h-full">
-                    {sections.map(section => (
-                        <a
-                            key={section}
-                            onClick={() => handleLinkClick(section)}
-                            className={`block text-lg cursor-pointer ${activeSection === section ? 'text-green-400 underline' : 'text-gray-400'} hover:text-green-400 transition duration-300 py-2 px-4`}
-                        >
-                            {section === 'hero' ? 'Home' : section.charAt(0).toUpperCase() + section.slice(1)}
-                        </a>
-                    ))}
+                <div className="flex flex-col items-start gap-1 border-t border-white/10 pt-3 pb-6">
+                    {links.map(link => renderLink(link, 'py-2 text-lg'))}
                 </div>
             </div>
         </nav>

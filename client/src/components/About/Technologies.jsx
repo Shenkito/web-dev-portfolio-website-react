@@ -1,58 +1,103 @@
-import React from 'react';
-import { FaReact, FaNodeJs, FaHtml5, FaCss3 } from 'react-icons/fa';
+import Marquee from 'react-fast-marquee';
+import { FaReact, FaNodeJs, FaHtml5, FaCss3, FaDatabase } from 'react-icons/fa';
 import {
     SiJavascript,
-    SiExpress,
-    SiVite,
-    SiMongodb,
-    SiOpenai,
+    SiTypescript,
+    SiNextdotjs,
+    SiMui,
     SiTailwindcss,
+    SiExpress,
+    SiMongodb,
+    SiMongoose,
+    SiVite,
+    SiGit,
+    SiGithub,
     SiStoryblok,
     SiAzuredevops,
-    SiFigma,
     SiJirasoftware,
+    SiFigma,
     SiCrowdin,
     SiPostman
 } from 'react-icons/si';
+import { TbApi, TbPlugConnected } from 'react-icons/tb';
+import { HiSparkles } from 'react-icons/hi';
+
+// Every technical skill from the CV, split into two rows that scroll in opposite directions
+const rows = [
+    [
+        { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
+        { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' },
+        { name: 'React', icon: FaReact, color: '#61DAFB' },
+        { name: 'Next.js', icon: SiNextdotjs, color: '#FFFFFF' },
+        { name: 'Material UI', icon: SiMui, color: '#007FFF' },
+        { name: 'TailwindCSS', icon: SiTailwindcss, color: '#06B6D4' },
+        { name: 'HTML5', icon: FaHtml5, color: '#E34F26' },
+        { name: 'CSS3', icon: FaCss3, color: '#1572B6' },
+        { name: 'Node.js', icon: FaNodeJs, color: '#5FA04E' },
+        { name: 'Express', icon: SiExpress, color: '#FFFFFF' },
+        { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
+        { name: 'Mongoose', icon: SiMongoose, color: '#E05252' },
+    ],
+    [
+        { name: 'NoSQL', icon: FaDatabase, color: '#A78BFA' },
+        { name: 'HTTP / REST APIs', icon: TbApi, color: '#A78BFA' },
+        { name: 'WebSocket', icon: TbPlugConnected, color: '#A78BFA' },
+        { name: 'Storyblok CMS', icon: SiStoryblok, color: '#09B3AF' },
+        { name: 'Vite', icon: SiVite, color: '#646CFF' },
+        { name: 'Git', icon: SiGit, color: '#F05032' },
+        { name: 'GitHub', icon: SiGithub, color: '#FFFFFF' },
+        { name: 'Azure DevOps', icon: SiAzuredevops, color: '#0078D7' },
+        { name: 'Jira', icon: SiJirasoftware, color: '#2684FF' },
+        { name: 'Figma', icon: SiFigma, color: '#F24E1E' },
+        { name: 'Crowdin', icon: SiCrowdin, color: '#FFFFFF' },
+        { name: 'Postman', icon: SiPostman, color: '#FF6C37' },
+        { name: 'AI', icon: HiSparkles, color: '#A78BFA' },
+    ],
+];
+
+const chipClass = 'mx-1.5 flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-300 transition-all duration-300 hover:border-purple-400/60 hover:bg-white/10 hover:text-white hover:shadow-[0_0_12px_rgba(168,85,247,0.4)]';
+
+const renderChip = ({ name, icon: Icon, color }) => (
+    <span key={name} className={chipClass}>
+        <Icon className="text-lg" style={{ color }} />
+        {name}
+    </span>
+);
 
 const Technologies = () => {
-    const technologies = [
-        { name: 'React', icon: <FaReact className="text-4xl" style={{ color: '#61DAFB' }} />, url: 'https://reactjs.org/' },
-        { name: 'JavaScript', icon: <SiJavascript className="text-4xl" style={{ color: '#F7DF1E' }} />, url: 'https://www.javascript.com/' },
-        { name: 'Express', icon: <SiExpress className="text-4xl" style={{ color: '#000000' }} />, url: 'https://expressjs.com/' },
-        { name: 'Node.js', icon: <FaNodeJs className="text-4xl" style={{ color: '#339933' }} />, url: 'https://nodejs.org/' },
-        { name: 'HTML5', icon: <FaHtml5 className="text-4xl" style={{ color: '#E34F26' }} />, url: 'https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5' },
-        { name: 'CSS3', icon: <FaCss3 className="text-4xl" style={{ color: '#1572B6' }} />, url: 'https://developer.mozilla.org/en-US/docs/Web/CSS' },
-        { name: 'Vite', icon: <SiVite className="text-4xl" style={{ color: '#646CFF' }} />, url: 'https://vitejs.dev/' },
-        { name: 'MongoDB', icon: <SiMongodb className="text-4xl" style={{ color: '#47A248' }} />, url: 'https://www.mongodb.com/' },
-        { name: 'OpenAI', icon: <SiOpenai className="text-4xl" style={{ color: '#412991' }} />, url: 'https://www.openai.com/' },
-        { name: 'TailwindCSS', icon: <SiTailwindcss className="text-4xl" style={{ color: '#38B2AC' }} />, url: 'https://tailwindcss.com/' },
-        { name: 'Storyblok', icon: <SiStoryblok className="text-4xl" style={{ color: '#0EA5E9' }} />, url: 'https://www.storyblok.com/' },
-        { name: 'Azure DevOps', icon: <SiAzuredevops className="text-4xl" style={{ color: '#0078D7' }} />, url: 'https://azure.microsoft.com/en-us/services/devops/' },
-        { name: 'Figma', icon: <SiFigma className="text-4xl" style={{ color: '#F24E1E' }} />, url: 'https://www.figma.com/' },
-        { name: 'Jira', icon: <SiJirasoftware className="text-4xl" style={{ color: '#0052CC' }} />, url: 'https://www.atlassian.com/software/jira' },
-        { name: 'Crowdin', icon: <SiCrowdin className="text-4xl" style={{ color: '#41718C' }} />, url: 'https://crowdin.com/' },
-        { name: 'Postman', icon: <SiPostman className="text-4xl" style={{ color: '#FF6C37' }} />, url: 'https://www.postman.com/' }
-    ];
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Static list instead of the scrolling strip for people who turned off animations
+    if (prefersReducedMotion) {
+        return (
+            <ul className="flex flex-wrap gap-y-3">
+                {rows.flat().map(tech => <li key={tech.name}>{renderChip(tech)}</li>)}
+            </ul>
+        );
+    }
 
     return (
-        <div className="p-4 flex flex-col items-center">
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
-                {technologies.map((tech, index) => (
-                    <a
+        <>
+            {/* The strip repeats items to fill the row, so screen readers get this list instead */}
+            <ul className="sr-only">
+                {rows.flat().map(({ name }) => <li key={name}>{name}</li>)}
+            </ul>
+            <div aria-hidden="true" className="-mx-6 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+                {rows.map((row, index) => (
+                    <Marquee
                         key={index}
-                        href={tech.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex flex-col items-center justify-center p-4 hover:bg-gray-800 rounded-lg transition-transform transform hover:scale-110"
-                        title={tech.name}
+                        direction={index % 2 === 0 ? 'left' : 'right'}
+                        speed={35}
+                        autoFill
+                        pauseOnHover
+                        pauseOnClick
+                        className="py-3"
                     >
-                        {tech.icon}
-                        <span className="mt-2 text-sm text-gray-300 text-center">{tech.name}</span>
-                    </a>
+                        {row.map(renderChip)}
+                    </Marquee>
                 ))}
             </div>
-        </div>
+        </>
     );
 };
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import NavBar from '../../components/NavBar/NavBar';
 import About from '../../components/About/About';
 import ProjectsSection from '../../components/Projects/ProjectsSection';
@@ -10,7 +9,7 @@ const Home = () => {
     return (
         <div className="flex flex-col space-y-4"> {/* Added spacing between sections */}
             <NavBar />
-            <section id="hero" className="h-screen flex justify-center items-center"> {/* Changed to h-screen */}
+            <section id="hero" className="min-h-screen flex justify-center items-center"> {/* Grows on short screens instead of overflowing */}
                 <Hero />
             </section>
             <section id="about" className="min-h-screen flex justify-center items-center" aria-label="About Me">
