@@ -4,7 +4,7 @@ The personal portfolio of Ivelin Shenkov, Software Developer focused on the fron
 
 ## Live site
 
-[ishenk-portfolio.web.app](https://ishenk-portfolio.web.app/)
+[ishdev.web.app](https://ishdev.web.app/)
 
 ## Screenshots
 

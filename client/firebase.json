@@ -1,17 +1,41 @@
 {
-  "hosting": {
-    "public": "dist",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ],
-    "predeploy": ["npm run build"]
-  }
+  "hosting": [
+    {
+      "site": "ishdev",
+      "public": "dist",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "predeploy": ["npm run build"]
+    },
+    {
+      "site": "ishenk-portfolio",
+      "public": "dist",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "redirects": [
+        {
+          "source": "/",
+          "destination": "https://ishdev.web.app/",
+          "type": 301
+        },
+        {
+          "source": "/:path*",
+          "destination": "https://ishdev.web.app/:path",
+          "type": 301
+        }
+      ]
+    }
+  ]
 }
