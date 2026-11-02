@@ -18,7 +18,7 @@ const Hero = () => {
                             View Projects
                         </a>
                         <a
-                            href="https://drive.google.com/uc?export=download&id=1rd0nXm5lhWzlM8uX9qW9_5AJjBAaXhrC"
+                            href="https://drive.google.com/uc?export=download&id=1SK2ub2dwLwuF2XzrsGnYcQezq1hGaNP4"
                             download="Ivelin_Shenkov_CV.pdf"
                             className="border border-gray-500 text-gray-200 px-6 py-2 rounded-full transform transition duration-300 hover:scale-105 hover:border-green-400 hover:text-green-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400"
                         >
